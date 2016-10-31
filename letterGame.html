@@ -2,6 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <title>Letter Game</title>
     <style media="screen">
       body {
@@ -11,13 +13,12 @@
       #canvas {
         width: 100%;
         height: 100%;
-        /*border: solid 1px red;*/
         background-color: #212121;
       }
     </style>
   </head>
-  <body>
 
+  <body>
     <canvas id="canvas"></canvas>
 
     <script type="text/javascript">
@@ -52,11 +53,12 @@
         this.color = random_color();
         this.x = Math.floor(Math.random() * canvas.width);
         this.y = 0;
-        // velocity Y == random # between 1 and 10
+        // Velocity Y == random # between 1 and 11
         this.vy = Math.random() * 10 + 1;
         this.vx = 0;
         this.gravity = 0.1;
         this.bounceFactor = 0.7;
+
         this.updatePosition = function() {
           // Every time the position is updated, vy will be increased by gravity
           this.vy += this.gravity;
@@ -75,10 +77,9 @@
             this.x = 0;
           }
         }
+
         this.draw = function() {
           context.fillStyle = this.color;
-          // some fun:
-          // context.fillStyle = random_color();
           context.font = this.size + "px Arial";
           context.fillText(this.value, this.x, this.y);
         };
@@ -94,9 +95,8 @@
       }, 300);
 
       (function draw() {
-
         requestAnimationFrame(draw);
-        // context.clearRect(0, 0, canvas.width, canvas.height);
+
         context.fillStyle = 'rgba(33, 33, 33, 0.4)';
         context.fillRect(0, 0, canvas.width, canvas.height);
 
@@ -104,9 +104,7 @@
           letter.updatePosition();
           letter.draw();
         });
-      // call function right away
       }());
-
     </script>
 
   </body>
