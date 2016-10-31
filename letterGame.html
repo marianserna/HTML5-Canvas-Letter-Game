@@ -30,7 +30,7 @@
 
       function random_letter() {
         var letters = 'abcdefghijklmnopqrstuvwxyz'.split('');
-        // randomly gets an index that is an integer
+        // Randomly gets an index that is an integer
         var i = Math.floor(Math.random() * letters.length);
         return letters[i];
       }
@@ -63,12 +63,12 @@
           // Every time the position is updated, vy will be increased by gravity
           this.vy += this.gravity;
           this.vx = wind;
-          // if velocity > 0 { ball drops }
+          // If velocity > 0 { ball drops }
           this.y += Math.floor(this.vy);
           this.x += Math.floor(this.vx);
           if (this.y >= canvas.height) {
             this.y = canvas.height;
-            // new vy will be a negative velocity so that it goes up (negative goes up)
+            // New vy will be a negative velocity so that it goes up (negative goes up)
             this.vy *= -this.bounceFactor;
           }
           if (this.x > canvas.width - this.size) {
